@@ -255,7 +255,7 @@ export const generateOrder = (req,res) => {
         footer: 0
     }
     
-    ws['!rows'][13] = {hpx: (ws.C14.v.length/45)*15}
+    ws['!rows'][13] = {hpx: Math.ceil(ws.C14.v.length/45)*15}
     
     
     //Columna H, Columna I, z:'4'
