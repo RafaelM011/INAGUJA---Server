@@ -42,5 +42,5 @@ server.put('/createorder', generateOrder)
 server.put('/generatepdf', generatePdf)
 //Download data
 server.get('/download', (req,res) => {
-    res.download('./Orden.xlsx')
+    res.download('./Orden.pdf')
 })
