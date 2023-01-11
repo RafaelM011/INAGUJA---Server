@@ -2,6 +2,7 @@ import XLSX from 'xlsx';
 import express from 'express';
 import cors from 'cors';
 import { generateOrder } from './controller/ordergenerator.js';
+import { generatePdf } from './controller/pdf.js';
 
 //Retrieve data from excel
 const catalogo = XLSX.readFile('Catalogo_de_Bienes2.xlsx');  
@@ -35,8 +36,10 @@ server.get('/', (req,res) => res.json('server is running properly'))
 server.get('/getdata', (req,res) => {
     res.json({data0, data1, data2, data3})
 })
-//Put data and generate order
+//Put data on excel and generate order
 server.put('/createorder', generateOrder)
+//Put data on pdf and generate order
+server.put('/generatepdf', generatePdf)
 //Download data
 server.get('/download', (req,res) => {
     res.download('./Orden.xlsx')
